@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+  <title>Trackmania Username Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="container">
+    <h1 class="text-xl font-bold mb-5">Trackmania Username Generator</h1>
+    <!-- username input -->
+    <div id="usernameDiv" class="mb-5">
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="relative bg-gray-50 ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-violet-700 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-64 p-2.5 checked:bg-emerald-500"
+      />
+    </div>
+    <!-- colors input (start and end) -->
+    <div id="colorsDiv">
+      <div class="flex items-center mb-2">
+        <label for="startColor" class="mr-2">Start Color:</label>
+        <input
+          value="#FF0000"
+          type="color"
+          id="startColor"
+          name="startColor"
+          class="p-0.5 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700"
+        />
+      </div>
+      <div class="mb-2">
+        <div class="flex items-center">
+          <label for="middleColor" class="mr-2">Middle Color:</label>
+          <input
+            type="color"
+            id="middleColor"
+            name="middleColor"
+            class="p-0.5 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700"
+          />
+        </div>
+        <div class="flex items-center">
+          <br />
+          <!-- checkbox for middle color -->
+          <input
+            type="checkbox"
+            id="middleColorCheckbox"
+            name="middleColorCheckbox"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+          />
+          <label
+            for="middleColorCheckbox"
+            class="ms-2 font-medium text-gray-900 dark:text-gray-300"
+            >Use Middle Color</label
+          >
+        </div>
+      </div>
+      <div class="flex items-center">
+        <label for="endColor" class="mr-2">End Color:</label>
+        <input
+          value="#0000FF"
+          type="color"
+          id="endColor"
+          name="endColor"
+          class="p-0.5 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700"
+        />
+      </div>
+    </div>
+    <div class="mb-2 mt-5">
+      <h3 class="font-bold">Preview:</h3>
+      <p class="result" id="result"></p>
+    </div>
+    <div class="my-2">
+      <h3 class="font-bold">Code:</h3>
+      <input
+        type="text"
+        id="tmResult"
+        class="mb-3 relative bg-gray-50 ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-violet-700 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-64 p-2.5 checked:bg-emerald-500"
+      />
+      <button
+        id="copy"
+        class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+      >
+        Copy
+      </button>
+    </div>
+    <p class="text-sm text-gray-500 mb-1">Text formatting coming soon!</p>
+    <p class="text-sm text-gray-400 italic">
+      Made by <a href="https://steveblox.github.io">SteveBlox</a>
+    </p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
