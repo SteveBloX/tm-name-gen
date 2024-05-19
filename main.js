@@ -1,27 +1,28 @@
+// Function to convert hex to RGB
 function hexToRgb(hex) {
-  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
-    : null;
+  hex = hex.replace("#", "");
+  const bigint = parseInt(hex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return [r, g, b];
 }
 
+// Function to convert RGB to hex
 function rgbToHex(r, g, b) {
-  return (
-    "#" +
-    ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
-  );
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b)
+    .toString(16)
+    .slice(1)
+    .toUpperCase()}`;
 }
 
-function interpolateColor(startRgb, endRgb, factor) {
-  return {
-    r: Math.round(startRgb.r + factor * (endRgb.r - startRgb.r)),
-    g: Math.round(startRgb.g + factor * (endRgb.g - startRgb.g)),
-    b: Math.round(startRgb.b + factor * (endRgb.b - startRgb.b)),
-  };
+// Function to interpolate between two colors
+function interpolateColor(color1, color2, factor) {
+  const result = color1.slice();
+  for (let i = 0; i < 3; i++) {
+    result[i] = Math.round(result[i] + factor * (color2[i] - result[i]));
+  }
+  return result;
 }
 
 // Function to generate the gradient
