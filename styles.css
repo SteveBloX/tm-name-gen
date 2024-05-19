@@ -18,5 +18,21 @@ body {
   padding: 2em;
   background: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 
+#gradient {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: .5s all;
+}
+#gradient:hover{
+  height: 8rem;
+}
+#expandGradient {
+  position: fixed;
+  bottom: .4rem;
+  right: 0;
+  transition: .5s all;
 }

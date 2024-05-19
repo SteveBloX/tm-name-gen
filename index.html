@@ -16,6 +16,7 @@
         name="username"
         class="relative bg-gray-50 ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-violet-700 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block w-64 p-2.5 checked:bg-emerald-500"
       />
+      <p class="text-sm text-gray-500 mt-0.5" id="minLetters">min. 2 letters</p>
     </div>
     <!-- colors input (start and end) -->
     <div id="colorsDiv">
@@ -88,6 +89,16 @@
     <p class="text-sm text-gray-400 italic">
       Made by <a href="https://steveblox.github.io">SteveBlox</a>
     </p>
+    <!-- gradient bar at the bottom of the card -->
+    <div id="gradientBar" class="mt-5">
+      <div id="gradient" class="h-2"></div>
+    </div>
+    <button
+      id="expandGradient"
+      class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+    >
+      Expand
+    </button>
   </div>
 
   <script src="main.js"></script>

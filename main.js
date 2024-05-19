@@ -78,6 +78,10 @@ const result = document.querySelector(".result");
 const tmResult = document.querySelector("#tmResult");
 const copy = document.querySelector("#copy");
 const middleColorCheckbox = document.querySelector("#middleColorCheckbox");
+const gradientPreview = document.querySelector("#gradient");
+let gradientExpanded = false;
+const expandGradientButton = document.querySelector("#expandGradient");
+const minLetters = document.querySelector("#minLetters");
 function generateUsername() {
   const startColor = startInput.value;
   const middleColor = middleColorCheckbox.checked ? middleInput.value : null;
@@ -87,6 +91,16 @@ function generateUsername() {
     `startColor: ${startColor}, middleColor: ${middleColor}, endColor: ${endColor}, name: ${name}`
   );
   const minNameLength = middleColorCheckbox.checked ? 4 : 2;
+  if (startColor && endColor) {
+    gradientPreview.style.background = `linear-gradient(to right, ${startColor}, ${
+      middleColor || endColor
+    }${middleColor ? `, ${endColor}` : ""}`;
+  }
+  if (middleColorCheckbox.checked) {
+    minLetters.textContent = "min. 4 letters";
+  } else {
+    minLetters.textContent = "min. 2 letters";
+  }
   if (!startColor || !endColor || !name || name.length < minNameLength) return;
   const gradient = generateGradient(
     startColor,
@@ -111,7 +125,19 @@ middleInput.addEventListener("input", () => {
 });
 endInput.addEventListener("input", generateUsername);
 middleColorCheckbox.addEventListener("change", generateUsername);
-
+document.body.onload = generateUsername;
 copy.addEventListener("click", function () {
   navigator.clipboard.writeText(tmResult.value);
+});
+expandGradientButton.addEventListener("click", () => {
+  gradientExpanded = !gradientExpanded;
+  if (gradientExpanded) {
+    gradientPreview.style.height = "8rem";
+    expandGradientButton.style.bottom = "8.2rem";
+    expandGradientButton.innerText = "Collapse";
+  } else {
+    gradientPreview.style.height = "0.5rem";
+    expandGradientButton.style.bottom = "0.4rem";
+    expandGradientButton.innerText = "Expand";
+  }
 });
