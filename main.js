@@ -134,10 +134,12 @@ expandGradientButton.addEventListener("click", () => {
   if (gradientExpanded) {
     gradientPreview.style.height = "8rem";
     expandGradientButton.style.bottom = "8.2rem";
-    expandGradientButton.innerText = "Collapse";
+    expandGradientButton.innerHTML =
+      'Collapse <i class="fa-solid fa-chevron-down"></i>';
   } else {
     gradientPreview.style.height = "0.5rem";
     expandGradientButton.style.bottom = "0.4rem";
-    expandGradientButton.innerText = "Expand";
+    expandGradientButton.innerHTML =
+      'Expand <i class="fa-solid fa-chevron-up"></i>';
   }
 });

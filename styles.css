@@ -27,9 +27,6 @@ body {
   width: 100%;
   transition: .5s all;
 }
-#gradient:hover{
-  height: 8rem;
-}
 #expandGradient {
   position: fixed;
   bottom: .4rem;
